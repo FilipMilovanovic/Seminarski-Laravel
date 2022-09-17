@@ -27,6 +27,7 @@ Route::get('ispitiZaPrijavu/{brojIndeksa}', [IspitController::class, 'ispitiZaPr
 Route::get('studentInfo/{brojIndeksa}', [StudentController::class, 'studentInfo']);
 Route::get('sviStudenti', [StudentController::class, 'sviStudenti']);
 Route::delete('obrisiStudenta/{id}', [StudentController::class, 'obrisiStudenta']);
+Route::post('sacuvajStudenta', [StudentController::class, 'sacuvajStudenta']);
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

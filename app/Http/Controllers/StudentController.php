@@ -46,4 +46,24 @@ class StudentController extends Controller
                 'rez' => 400
             ]);
     }
+
+
+
+    public function sacuvajStudenta(Request $request)
+    {
+        if (DB::table('users')->insert([
+            'name' => $request->name,
+            'broj_indeksa' => $request->broj_indeksa,
+            'email' => $request->email,
+            'password' => $request->password,
+        ]))
+            return response()->json([
+                'rez' => 200
+            ]);
+
+        else
+            return response()->json([
+                'rez' => 400
+            ]);
+    }
 }
