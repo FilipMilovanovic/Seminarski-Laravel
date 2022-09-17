@@ -56,6 +56,8 @@ class StudentController extends Controller
             'broj_indeksa' => $request->broj_indeksa,
             'email' => $request->email,
             'password' => $request->password,
+            'status' => $request->status,
+            'smer' => $request->smer
         ]))
             return response()->json([
                 'rez' => 200
@@ -80,6 +82,8 @@ class StudentController extends Controller
                 'broj_indeksa' => $request->broj_indeksa,
                 'email' => $request->email,
                 'password' => $request->password,
+                'status' => $request->status,
+                'smer' => $request->smer
             ])
         )
             return response()->json([
