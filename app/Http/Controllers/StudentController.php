@@ -14,7 +14,7 @@ class StudentController extends Controller
     {
         $student = DB::table('users')->where('broj_indeksa', $brojIndeksa)->first();
 
-            return response()->json([
+        return response()->json([
             'rez' => 200,
             'student' => $student
         ]);
@@ -29,5 +29,21 @@ class StudentController extends Controller
             'rez' => 200,
             'studenti' => $studenti
         ]);
+    }
+
+
+
+
+    public function obrisiStudenta($id)
+    {
+        if (DB::table('users')->where('id', $id)->delete())
+            return response()->json([
+                'rez' => 200
+            ]);
+
+        else
+            return response()->json([
+                'rez' => 400
+            ]);
     }
 }
