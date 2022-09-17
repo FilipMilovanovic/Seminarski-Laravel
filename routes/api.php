@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\IspitController;
+use App\Http\Controllers\StudentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,6 +21,9 @@ Route::post('login', [AuthController::class, 'login']);
 
 Route::get('polozeniIspitiStudenta/{brojIndeksa}', [IspitController::class, 'vratiPolozeneIspiteStudenta']);
 Route::get('ispitiZaPrijavu/{brojIndeksa}', [IspitController::class, 'ispitiZaPrijavu']);
+Route::get('studentInfo/{brojIndeksa}', [StudentController::class, 'studentInfo']);
+Route::get('sviStudenti', [StudentController::class, 'sviStudenti']);
+
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
