@@ -66,4 +66,29 @@ class StudentController extends Controller
                 'rez' => 400
             ]);
     }
+
+
+
+
+
+    public function sacuvajIzmene(Request $request, $brojIndeksa)
+    {
+
+        if (DB::table('users')->where('broj_indeksa', $brojIndeksa)
+            ->update([
+                'name' => $request->name,
+                'broj_indeksa' => $request->broj_indeksa,
+                'email' => $request->email,
+                'password' => $request->password,
+            ])
+        )
+            return response()->json([
+                'rez' => 200
+            ]);
+
+        else
+            return response()->json([
+                'rez' => 400
+            ]);
+    }
 }
