@@ -22,6 +22,7 @@ Route::post('login', [AuthController::class, 'login']);
 
 Route::get('polozeniIspitiStudenta/{brojIndeksa}', [IspitController::class, 'vratiPolozeneIspiteStudenta']);
 Route::get('ispitiZaPrijavu/{brojIndeksa}', [IspitController::class, 'ispitiZaPrijavu']);
+Route::get('sortiranje/{brojIndeksa}/{sort}', [IspitController::class, 'sortiranje']);
 
 
 Route::get('studentInfo/{brojIndeksa}', [StudentController::class, 'studentInfo']);

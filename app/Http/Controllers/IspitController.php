@@ -53,6 +53,28 @@ class IspitController extends Controller
         else
             return response()->json([
                 'rez' => 404,
+                'ispiti' => $polozeniIspitiStudenta
+            ]);
+    }
+
+
+    public function sortiranje($brojIndeksa, $sort)
+    {
+        $polozeniIspitiStudenta = DB::table('polozeni_ispitis')
+            ->join('ispitis', 'polozeni_ispitis.ispit_id', 'ispitis.id')
+            ->where('student_broj_indeksa', $brojIndeksa)
+            ->orderBy('ocena', $sort)
+            ->get();
+
+        if (count($polozeniIspitiStudenta) > 0)
+            return response()->json([
+                'rez' => 200,
+                'ispiti' => $polozeniIspitiStudenta
+            ]);
+
+        else
+            return response()->json([
+                'rez' => 404,
                 'ispiti' => 'Nema ispita'
             ]);
     }
